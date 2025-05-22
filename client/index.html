@@ -10,7 +10,19 @@
   </head>
   <body>
     <!-- TODO: An accessible and validated element to collect user data (a form) -->
-
+    <form id="commentsForm">
+      <fieldset>
+        <legend>Info</legend>
+        <label for="name">Name</label>
+        <input type="text" name="name" required />
+        <label for="information">Information</label>
+        <input type="text" name="information" required />
+        <label for="comments">Comments</label>
+        <input type="text" name="comments" required />
+        <button type="submit">Submit</button>
+      </fieldset>
+    </form>
     <!-- TODO: A container to render (display) user data -->
+    <section id="container"></section>
   </body>
 </html>

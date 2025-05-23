@@ -43,20 +43,29 @@ app.post("/comments", (req, res) => {
 // =============================================
 // TODO: A route to READ data from the databse
 
-app.get("/comments", async (request, response) => {
-  // ! THIS WAS AN ERROR. Remember you cannot run two response.jsons in a .get
-  // response.json({ message: "This is the comments response" });
-  const result = await db.query(`SELECT * FROM comments`); // Selecting all rows in the databse
-  // I think I need to filter data to return the ID query string, to be able to delete it??
-  let data = query.rows;
-  if (queryString) {
-    data = data.filter((item) => {
-      return item.comments.id === queryString;
-    });
-  }
-
-  response.json(result.rows); //parsing the rows to the client as JSON
+app.get("/comments", async (req, res) => {
+  //query the database
+  const query = await db.query(`SELECT * FROM comments`);
+  //parse the query into JSON
+  const data = res.json(query.rows);
 });
+
+//  ! ==== Below is to filter data to return the ID query string. WIP
+
+// app.get("/comments", async (request, response) => {
+//   // ! THIS WAS AN ERROR. Remember you cannot run two response.jsons in a .get
+//   // response.json({ message: "This is the comments response" });
+//   const result = await db.query(`SELECT * FROM comments`); // Selecting all rows in the databse
+//   // I think I need to filter data to return the ID query string, to be able to delete it??
+//   let data = query.rows;
+//   if (queryString) {
+//     data = data.filter((item) => {
+//       return item.comments.id === queryString;
+//     });
+//   }
+
+//   response.json(result.rows); //parsing the rows to the client as JSON
+// });
 
 // This is handling posts requests, inserting the data into the comments table in my database (using the SQL I wrote in supabase)
 // This then sends the result back as a JSON response

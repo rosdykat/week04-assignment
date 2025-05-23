@@ -9,7 +9,7 @@ const commentsForm = document.getElementById("commentsForm");
 async function handleSubmitCommentsForm(event) {
   event.preventDefault(); //Preventing defaults
   console.log("Form submitted"); //Testing - confirm function runs
-  const formData = new FormData(commentsForm);
+  const formData = new FormData(commentsForm); // ! FormData still confuses me. Is this just grabbing all of the data in the form from the parameters (commentsForm)?
   const name = formData.get("name");
   const information = formData.get("information");
   const comments = formData.get("comments"); // getting the value from the form field that matches with the attribute
@@ -31,56 +31,78 @@ commentsForm.addEventListener("submit", handleSubmitCommentsForm); //Calling the
 // ========= Get comments data and display it on the page
 
 async function getComments() {
+  //fetching data
   const response = await fetch("http://localhost:8080/comments");
-  const comments = await response.json();
-  console.log(comments);
-  return comments;
+  const comments = await response.json(); //convering to json
+  console.log(comments); //testing
+  return comments; //returning the data to be used outside the function
 }
 
+//converting the data into elements
 function createCommentsElements(arrayofdata) {
   arrayofdata.forEach((item) => {
+    // ! the arrow => confuses me still, but this is creating an array for each of my the elements in my data ?? So is it an array for each formName, information, comments?
     // Create the new elements
     const formName = document.createElement("h2");
     const formInformation = document.createElement("p");
     const formComments = document.createElement("p");
     const deleteButton = document.createElement("button");
+    const commentDivision = document.createElement("div");
 
     // update content values
+    // linking the dom elements with what the stringified data says
     formName.textContent = item.name;
+    formName.id = "formName";
     formInformation.textContent = item.information;
+    formInformation.id = "formInformation";
     formComments.textContent = item.comments;
+    formComments.id = "formComments";
     // I've created a delete button for each item, with this i'm hoping I can create an event listener to remove the select data row from the SQL database
     deleteButton.textContent = "delete";
     deleteButton.id = "delete" + item.id;
+    deleteButton.classList.add("deleteButtons");
+    commentDivision.id = "commentDivision";
 
-    // Now create an event listener for the delete button?
+    // ! Now create an event listener for the delete button?
+    // ! deleteButton.addEventListener("click", )
 
-    // deleteButton.addEventListener("click", )
-
-    // append to DOM
+    // append elements to DOM to appear on the page
     const commentSection = document.getElementById("container");
-    commentSection.appendChild(formName);
-    commentSection.appendChild(formInformation);
-    commentSection.appendChild(formComments);
-    commentSection.appendChild(deleteButton);
+    commentDivision.appendChild(formName);
+    commentDivision.appendChild(formInformation);
+    commentDivision.appendChild(formComments);
+    commentDivision.appendChild(deleteButton);
+    commentSection.appendChild(commentDivision);
+    return deleteButton;
   });
 }
 
+// ! function deleteDatabase(deleteData) {
+//   deleteData.forEach((item) => {
+//     const formName = document.getElementById(item.name);
+//     const formInformation = document.getElementById(item.information);
+//     const formComments = document.getElementById(item.comments);
+//     // const deleteButton = document.getElementById(item.);
+//     const commentDivision = document.getElementById(item.name);
+//   });
+// }
+
+// deleteButton.addEventListener("click", deleteDatabase);
+
+// async function to combine the use the two functions?
 async function renderData() {
   const formData = await getComments();
   console.log(formData);
   createCommentsElements(formData);
 }
 
+renderData();
+
 // const deleteComment = document.getElementById("delete");
 // deleteComment.addEventListener("click", function (){
 // deleteComment.id
 
 // })
-
-renderData();
-
-// renderData();
 
 // =============================== I current render the data to the page. So I think my next step is managing this, deleting it, ect.
 

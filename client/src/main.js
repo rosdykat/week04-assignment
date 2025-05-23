@@ -15,7 +15,7 @@ async function handleSubmitCommentsForm(event) {
   const comments = formData.get("comments"); // getting the value from the form field that matches with the attribute
   const formValues = Object.fromEntries(formData); //Convering form data into plain JS
 
-  fetch("http://localhost:8080/comments", {
+  fetch("https://week04-assignment-2.onrender.com/comments", {
     //Sending a request to the /comments section of my server
     method: "POST", //Sending a post request
     headers: {
@@ -32,7 +32,9 @@ commentsForm.addEventListener("submit", handleSubmitCommentsForm); //Calling the
 
 async function getComments() {
   //fetching data
-  const response = await fetch("http://localhost:8080/comments");
+  const response = await fetch(
+    "https://week04-assignment-2.onrender.com/comments"
+  );
   const comments = await response.json(); //convering to json
   console.log(comments); //testing
   return comments; //returning the data to be used outside the function

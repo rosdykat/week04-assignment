@@ -4,7 +4,7 @@ Week 04 Assignment notes
 
 - Before starting the assignment, I had to go back to the "Dtabases:scheme,Tables, and SQL" and "Deploying a Client and Server on Render" modules, as I wasn't fully sure how to do this during the workshop. I practiced creating some basic forms and storing the information on supabase.
 
-- After revisiting the modules, i first created a rough version of the website, consiting of the form html and very basic CSS
+- After revisiting the modules, i first created a rough version of the website, consisting of the html for the form and a very basic CSS Grid.
 
 - It felt natural to focus on storing data to the database before I worry about writing any code that creates elements using data from the database.
 

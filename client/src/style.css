@@ -17,29 +17,31 @@
 
   body {
     background-color: lightblue;
-    height: 90vh;
-    width: 90vw;
+    height: 100vh;
+    width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    gap: 50px;
-    /* max-width: unset; */
+    grid-template-rows: auto auto auto auto;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    gap: 20px;
   }
 
   #commentsForm {
-    grid-area: 2 / 2 / span 1 / span 1;
-    background-color: yellow;
+    grid-area: 1 / 2 / span 1 / span 1;
+    background-color: rgb(255, 230, 230);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-style: solid;
+    border: 1px solid black;
     height: 100%;
     width: 100%;
+    border-radius: 20px;
+    padding: 20px;
   }
 
   #container {
-    grid-area: 3 / 1 / span 3 / span 3;
+    grid-area: 2 / 1 / span 3 / span 3;
     background-color: white;
     border-style: solid;
     display: flex;
@@ -47,43 +49,59 @@
     justify-content: flex-start;
     align-items: center;
     padding: 1rem;
-    border-style: solid;
-    /* margin: auto; */
-    min-height: 100px;
+    border: 1px solid black;
+    margin: auto;
     height: auto;
     width: 80%;
     margin: 0 auto;
+    border-radius: 20px;
   }
 
   #commentDivision {
-    background-color: aquamarine;
+    background-color: RGB(230, 225, 255);
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
     width: 100%;
     margin-bottom: 1rem;
+    border-radius: 20px;
+    padding: 10px;
   }
 
   #formName {
-    background-color: red;
+    background-color: RGB(255, 183, 77);
     font-weight: bold;
     width: fit-content;
     padding: 5px;
+    border-radius: 10px;
   }
 
   #formInformation {
-    background-color: blueviolet;
+    background-color: white;
     font-weight: bold;
+    border-radius: 20px;
+    padding: 5px;
   }
 
   #formComments {
     background-color: white;
+    border-radius: 20px;
+    padding: 5px;
   }
 
   .deleteButtons {
     /* margin: 10px; */
     width: 30%;
+  }
+
+  #postsTitle {
+    grid-area: 2 / 1 / span 3 / span 3;
+    /* text-align: center; */
+    background-color: rgb(185, 185, 245);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 20px;
   }
 }
 /* ======================WEB VERSION=============================================== */
@@ -101,33 +119,79 @@
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 50px;
+    grid-template-rows: auto auto auto auto;
+    gap: 20px;
   }
 
   #commentsForm {
-    grid-area: 2 / 4 / span 1 / span 5;
-    background-color: yellow;
+    grid-area: 1 / 4 / span 1 / span 5;
+    background-color: rgb(255, 230, 230);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-style: solid;
+    border: 1px solid black;
+    padding: 20px;
+    width: 300px;
+    margin: auto;
+    gap: 1px;
+    border-radius: 20px;
+    padding: 20px;
   }
 
   #container {
-    grid-area: 3 / 3 / span 1 / span 7;
+    grid-area: 2 / 3 / span 2 / span 7;
     background-color: white;
-    border-style: solid;
+    border: 1px solid black;
+    height: auto;
+    border-radius: 20px;
+    padding: 10px;
   }
 
   #commentDivision {
-    background-color: aquamarine;
+    background-color: RGB(230, 225, 255);
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 1rem;
     width: 100%;
     margin-bottom: 1rem;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  #postsTitle {
+    text-align: center;
+    background-color: rgb(185, 185, 245);
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .formBox {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  #formName {
+    background-color: RGB(255, 183, 77);
+    font-weight: bold;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  #formInformation {
+    background-color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 5px;
+  }
+
+  #formComments {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
   }
 }

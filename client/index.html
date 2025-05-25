@@ -13,19 +13,27 @@
     <form id="commentsForm">
       <fieldset>
         <legend>Info</legend>
-        <label for="name">Name</label>
-        <input type="text" name="name" required />
+        <div class="formBox">
+          <label for="name">Name</label>
+          <input type="text" name="name" required />
+        </div>
         <br />
-        <label for="information">Information</label>
-        <input type="text" name="information" required />
+        <div class="formBox">
+          <label for="information">Title</label>
+          <input type="text" name="information" required />
+        </div>
         <br />
-        <label for="comments">Comments</label>
-        <input type="text" name="comments" required />
-        <button type="submit">Submit</button>
+        <div class="formBox">
+          <label for="comments">Comments</label>
+          <input type="text" name="comments" required />
+        </div>
+        <button type="submit" id="submitButton">Submit</button>
       </fieldset>
     </form>
     <!-- <button id="showResults">Show results</button> -->
     <!-- TODO: A container to render (display) user data -->
-    <section id="container"></section>
+    <section id="container">
+      <h2 id="postsTitle">Posts</h2>
+    </section>
   </body>
 </html>

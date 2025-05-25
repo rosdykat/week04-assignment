@@ -7,7 +7,7 @@ const commentsForm = document.getElementById("commentsForm");
 // - add interactivity to your data collection element (addEventListener to button)
 
 async function handleSubmitCommentsForm(event) {
-  event.preventDefault(); //Preventing defaults
+  // event.preventDefault(); //Preventing defaults, I removed this as the page needs to refresh to show the new posts. I know there is a way to make it apply without refreshing but this seemed like an easier solution for now.
   console.log("Form submitted"); //Testing - confirm function runs
   const formData = new FormData(commentsForm); // ! FormData still confuses me. Is this just grabbing all of the data in the form from the parameters (commentsForm)?
   const name = formData.get("name");
@@ -23,6 +23,7 @@ async function handleSubmitCommentsForm(event) {
     },
     body: JSON.stringify(formValues), //Sending the data as a string
   });
+
   console.log(formValues); //testing
 }
 
